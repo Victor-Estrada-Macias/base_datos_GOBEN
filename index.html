@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            
+        }
+        h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            
+        }
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .table-name {
+            color: #0056b3;
+            font-weight: bold;
+        }
+        .field-name {
+            color: #333;
+        }
+    </style>
+    <iframe src="NIMBUS_IC32.pdf" width="600" height="800" style="border:none;"></iframe>
+    <div class="container">
+        <h1>Descripción de la Base de Datos</h1>
+        <p>La base de datos está compuesta por varias tablas interrelacionadas que gestionan empleados, clientes, servicios, citas, horarios y otros elementos relacionados. A continuación, se describen las tablas y sus relaciones:</p>
+        
+        <h2>Roles</h2>
+        <p><span class="field-name">ID_Rol (int):</span> Identificador único para cada rol.</p>
+        <p><span class="field-name">nombre (string):</span> Nombre del rol.</p>
+        
+        <h2>Empleados</h2>
+        <p><span class="field-name">ID_empleado (int):</span> Identificador único para cada empleado.</p>
+        <p><span class="field-name">nombre (string):</span> Nombre del empleado.</p>
+        <p><span class="field-name">apellidoP (string):</span> Apellido paterno del empleado.</p>
+        <p><span class="field-name">apellidoM (string):</span> Apellido materno del empleado.</p>
+        <p><span class="field-name">telefono (string):</span> Teléfono del empleado.</p>
+        <p><span class="field-name">fotografia (png):</span> Fotografía del empleado.</p>
+        <p><span class="field-name">ID_rol (int):</span> Relación con la tabla de Roles.</p>
+        
+        <h2>Clientes</h2>
+        <p><span class="field-name">ID_Cliente (int):</span> Identificador único para cada cliente.</p>
+        <p><span class="field-name">nombre (string):</span> Nombre del cliente.</p>
+        <p><span class="field-name">apellidoP (string):</span> Apellido paterno del cliente.</p>
+        <p><span class="field-name">apellidoM (string):</span> Apellido materno del cliente.</p>
+        <p><span class="field-name">whatsapp (string):</span> Número de WhatsApp del cliente.</p>
+        <p><span class="field-name">fotografia (png):</span> Fotografía del cliente.</p>
+        
+        <h2>Citas</h2>
+        <p><span class="field-name">ID_cita (int):</span> Identificador único para cada cita.</p>
+        <p><span class="field-name">ID_cliente (int):</span> Relación con la tabla de Clientes.</p>
+        <p><span class="field-name">ID_registroServicios (int):</span> Relación con la tabla de RegistroServicios.</p>
+        <p><span class="field-name">ID_corteCaja (int):</span> Relación con la tabla de CorteCaja.</p>
+        <p><span class="field-name">ID_horario (int):</span> Relación con la tabla de Horarios.</p>
+        
+        <h2>Servicios</h2>
+        <p><span class="field-name">ID_Servicio (int):</span> Identificador único para cada servicio.</p>
+        <p><span class="field-name">nombre (string):</span> Nombre del servicio.</p>
+        <p><span class="field-name">descripcion (string):</span> Descripción del servicio.</p>
+        <p><span class="field-name">costo (double):</span> Costo del servicio.</p>
+        <p><span class="field-name">imagen (png):</span> Imagen del servicio.</p>
+        
+        <h2>RegistroServicios</h2>
+        <p><span class="field-name">ID_registroServicio (int):</span> Identificador único para cada registro de servicio.</p>
+        <p><span class="field-name">conceptoAplic (string):</span> Concepto aplicado.</p>
+        <p><span class="field-name">costoAdic (double):</span> Costo adicional.</p>
+        <p><span class="field-name">notas (string):</span> Notas adicionales.</p>
+        
+        <h2>Tintes</h2>
+        <p><span class="field-name">ID_tinte (int):</span> Identificador único para cada tinte.</p>
+        <p><span class="field-name">nombre (string):</span> Nombre del tinte.</p>
+        <p><span class="field-name">tono (string):</span> Tono del tinte.</p>
+        <p><span class="field-name">imagen (png):</span> Imagen del tinte.</p>
+        
+        <h2>Tintes_Registros</h2>
+        <p><span class="field-name">ID_tinte (int):</span> Relación con la tabla de Tintes.</p>
+        <p><span class="field-name">ID_registroServicio (int):</span> Relación con la tabla de RegistroServicios.</p>
+        
+        <h2>Servicios_Registros</h2>
+        <p><span class="field-name">ID_Servicio (int):</span> Relación con la tabla de Servicios.</p>
+        <p><span class="field-name">ID_RegistroServicio (int):</span> Relación con la tabla de RegistroServicios.</p>
+        
+        <h2>CorteCaja</h2>
+        <p><span class="field-name">ID_corteCaja (int):</span> Identificador único para cada corte de caja.</p>
+        <p><span class="field-name">ID_cita (int):</span> Relación con la tabla de Citas.</p>
+        <p><span class="field-name">total (double):</span> Total del corte de caja.</p>
+        <p><span class="field-name">fecha (timestamp):</span> Fecha y hora del corte de caja.</p>
+        
+        <h2>Horarios</h2>
+        <p><span class="field-name">ID_horario (int):</span> Identificador único para cada horario.</p>
+        <p><span class="field-name">ID_dia (int):</span> Relación con la tabla de Días.</p>
+        <p><span class="field-name">ID_empleados (int):</span> Relación con la tabla de Empleados.</p>
+        <p><span class="field-name">ID_estados (int):</span> Relación con la tabla de Estados.</p>
+        
+        <h2>Días</h2>
+        <p><span class="field-name">ID_dia (int):</span> Identificador único para cada día.</p>
+        <p><span class="field-name">fecha (date):</span> Fecha específica.</p>
+        <p><span class="field-name">ID_semana (int):</span> Relación con la tabla de Semanas.</p>
+        
+        <h2>Semanas</h2>
+        <p><span class="field-name">ID_semana (int):</span> Identificador único para cada semana.</p>
+        <p><span class="field-name">semana (int):</span> Número de la semana.</p>
+        
+        <h2>Estados</h2>
+        <p><span class="field-name">ID_estados (int):</span> Identificador único para cada estado.</p>
+        <p><span class="field-name">estado (string):</span> Descripción del estado.</p>
+        
+        <h2>Relación entre Tablas</h2>
+        <p>La base de datos está diseñada para gestionar eficientemente las citas, servicios, empleados, clientes y las operaciones diarias como los cortes de caja. La estructura relacional facilita la integración y la consulta de datos, asegurando que todas las transacciones y registros estén interconectados de manera coherente.</p>
+    </div>
+</body>
+</html>
